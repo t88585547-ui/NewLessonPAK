@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ivory: #F3EEE7;
+    --color-paper: #E8E1D7;
+    --color-paper-light: #F9F6F0;
+    --color-paper-dark: #DBD1C4;
+    --color-ink: #191715;
+    --color-ink-muted: #635D56;
+    --color-ocean: #254E68;
+    --color-ocean-deep: #183648;
+    --color-wave: #83AFC0;
+    --color-wave-soft: #C4DDE6;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F3EEE7;
+    color: #191715;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #F3EEE7;
+    color: #191715;
+    font-family: 'Manrope', 'IBM Plex Sans Thai', sans-serif;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #EAE3D8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C8BFB3;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #254E68;
+  }
+}
+
+/* Subtle paper texture overlay */
+.bg-paper-texture {
+  background-color: #F3EEE7;
+  background-image: radial-gradient(#191715 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+  opacity: 0.98;
+}
+
+/* Editorial rule lines */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(25, 23, 21, 0.15) 0%, rgba(25, 23, 21, 0.25) 50%, rgba(25, 23, 21, 0.15) 100%);
+}
+
+.editorial-line-vertical {
+  width: 1px;
+  background: rgba(25, 23, 21, 0.15);
+}
+
+/* Soft natural paper shadow */
+.shadow-paper-natural {
+  box-shadow: 0 10px 30px -10px rgba(25, 23, 21, 0.08), 0 2px 8px -2px rgba(25, 23, 21, 0.04);
+}
+
+.shadow-paper-elevated {
+  box-shadow: 0 20px 45px -15px rgba(37, 78, 104, 0.1), 0 8px 16px -6px rgba(25, 23, 21, 0.05);
+}
+
+/* Floating paper object tilt */
+.paper-tilt-left {
+  transform: rotate(-1.2deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.paper-tilt-left:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.paper-tilt-right {
+  transform: rotate(1.2deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.paper-tilt-right:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
